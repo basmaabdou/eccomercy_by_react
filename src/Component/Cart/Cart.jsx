@@ -32,8 +32,6 @@ export default function Cart() {
   return <>
   {cartDetails ? <div className='w-75 my-3 bg-main-light p-3 mx-auto'>
     <h3>Shopping Cart</h3>
-    <h6 className='  text-main '>Cart Items : {cartDetails.numOfCartItems}</h6>
-    <h6 className='  text-main mb-3 '>Total Cart Items : {cartDetails.data.totalCartPrice}</h6>
     {cartDetails.data.products.map((product) =>
     <div className="row border-bottom py-2 px-2 ">
         <div className="col-md-1">
@@ -57,7 +55,10 @@ export default function Cart() {
     </div>
     
 )}
+<br></br>
+<h6 className='  text-main mb-3 '>Total Cart Items : {cartDetails.data.totalCartPrice}</h6>
 <div className="d-flex mt-3 justify-content-center">
+  
 <Link to={"/address"} className='btn bg-main text-white me-3'>Online Payment</Link>
 </div>
   </div>
