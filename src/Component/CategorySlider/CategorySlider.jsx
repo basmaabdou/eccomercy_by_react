@@ -1,5 +1,5 @@
 import React from 'react'
-import "./CategorySlider.module.css"
+// import "./CategorySlider.module.css"
 import { useQuery } from 'react-query'
 import axios from 'axios'
 

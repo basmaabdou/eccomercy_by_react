@@ -1,5 +1,4 @@
 import React from 'react'
-import "./NotFound.module.css"
 import notFound from "../../Assets/images/error.svg"
 
 export default function NotFound() {

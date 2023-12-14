@@ -1,5 +1,4 @@
 import React from 'react'
-import "./ProductDetails.module.css"
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import axios from 'axios'

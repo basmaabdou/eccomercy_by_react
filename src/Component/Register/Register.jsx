@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./Register.module.css"
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'

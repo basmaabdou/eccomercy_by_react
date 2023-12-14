@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Categories.module.css"
+// import "./Categories.module.css"
 import { BallTriangle } from 'react-loader-spinner';
 import axios from 'axios';
 import { useQuery } from 'react-query';

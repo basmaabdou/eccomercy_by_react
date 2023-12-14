@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import "./FeaturedProducts.module.css"
 import axios from 'axios';
 import { useQuery } from "react-query";
 import { BallTriangle } from 'react-loader-spinner';
