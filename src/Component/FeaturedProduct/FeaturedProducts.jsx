@@ -5,8 +5,10 @@ import { BallTriangle } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../Context/CartContext';
 import toast from 'react-hot-toast';
-
+import { useTranslation } from 'react-i18next';
 export default function FeaturedProducts(product) {
+
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
 
   let { addToCart } = useContext(cartContext);
@@ -36,16 +38,16 @@ export default function FeaturedProducts(product) {
 
   return (
     <>
-    <input
+    
+      <h2 className='mt-2'>{t('product')}</h2>
+
+      <input
         type="text"
         className="my-input"
-        placeholder="Search products"
+        placeholder={t('search')}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <h2 className='mt-2'>All Products</h2>
-
-     
       {isLoading ? (
         <div className='w-100 d-flex justify-content-center py-5'>
           <BallTriangle
@@ -68,7 +70,7 @@ export default function FeaturedProducts(product) {
                   <h1 className='font-sm text-main'>{product.title.split(" ").slice(0 , 2)}</h1>
                   <h6 className='font-sm'>{product.description.split(" ").slice(0,2).join("         ")}</h6>
                   <p className='d-flex justify-content-between'>
-                    <span>{product.price} $</span>
+                    <span>{product.price} {t('egy')}</span>
                     <span>
                       <i className='fa fa-star rating-color me-1'></i>
                       {product.ratingsAverage}
@@ -76,9 +78,14 @@ export default function FeaturedProducts(product) {
                   </p>
                 </Link>
                 <a href={`/productdetails/${product._id}`}>
-                  <font color="#5d27b3">Details</font>
+                  <font color="#5d27b3">{t('detail')}</font>
                 </a>
-                <button onClick={() => addProduct(product._id)} className=' bg-main text-white w-100 btn-sm '>Add To Cart</button>
+                {product.ratingsAverage >= 4.8 && (
+                <h style={{ color: 'red' ,paddingLeft: '35px' }}>discount</h>
+              )}
+
+
+                <button onClick={() => addProduct(product._id)} className=' bg-main text-white w-100 btn-sm '>{t('addcart')}</button>
               </div>
             </div>
           ))}

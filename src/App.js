@@ -17,7 +17,8 @@ import ProductDetails from './Component/ProductDetails/ProductDetails';
 import CartContextProvider from './Context/CartContext';
 import Address from './Component/Address/Address';
 
-
+import { I18nextProvider   } from 'react-i18next';
+import i18n from './il8n.js';
 
 
 
@@ -53,8 +54,10 @@ function App() {
   
 
   return <CartContextProvider>
+    <I18nextProvider i18n={i18n}>
 <RouterProvider router={routers}></RouterProvider>
 <Toaster />
+</I18nextProvider>
 </CartContextProvider>
 
 }

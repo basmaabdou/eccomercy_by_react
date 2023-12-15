@@ -24,7 +24,6 @@ console.log(Data);
   <div >
   
 <img className='w-80' src={Data.imageCover} alt={Data.title} width={700} height={500} />
-
     <h3>{Data.title}</h3>
     <p className='text-main font-sm'>{Data.description}</p>
     <p>{Data.category.name}</p>
@@ -35,6 +34,10 @@ console.log(Data);
       <i className="me-2 fa fa-star rating-color"></i>
     </span>
     <span>{Data.ratingsAverage}</span>
+    <span>
+    {Data.ratingsAverage >= 4.8 && (
+      <h style={{ color: 'red'   ,paddingLeft: '30px'}}> Discount</h>
+    )}</span>
   </p>
 </div>
     {/* <button className='btn bg-main text-white w-100 btn-sm '>+ Add To Cart</button> */}
