@@ -14,12 +14,13 @@ export default function Register(value) {
     name: yup.string().min(3 , "Name minLength is 3").max(10 , "Name maxLength is 10").required("name is required"),
     email: yup.string().email("E-mail is inValid").required("E-mail is required"),
     phone: yup.string().matches(phoneRegExp, "Phone is inValid").required("Phone is required"),
-    password: yup.string().matches(/[A-Z][a-z0-9]{5,10}/ , "Password is inValid").required("Password is required"),
+    password: yup.string().matches(/[A-Z][a-z0-9]/ , "Password is inValid").required("Password is required"),
     rePassword: yup.string().oneOf([yup.ref("password")], "Password and rePassword don't match").required("rePassword is required")
   })
   let [Error,setError] = useState("")
   let [isLoading,setisLoadind] = useState(false)
   let navigate = useNavigate();
+   
   async function submitRegister(value) {
     setisLoadind(true)
     let {data} = await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signup` ,value)

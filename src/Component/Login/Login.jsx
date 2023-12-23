@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-// import "./Login.module.css"
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
@@ -12,12 +11,13 @@ export default function Login(value) {
   let {setUserToken} = useContext(userContext)
   let validationSchema = yup.object({
     email: yup.string().email("E-mail is inValid").required("E-mail is required"),
-    password: yup.string().matches(/[A-Z][a-z0-9]{5,10}/ , "Password is inValid").required("Password is required"),
+    password: yup.string().matches(/[A-Z][a-z0-9]/ , "Password is inValid").required("Password is required"),
   })
   let [Error,setError] = useState("")
   let [isLoading,setisLoadind] = useState(false)
   let navigate = useNavigate();
-  async function submitRegister(value) {
+
+  async function submitRegister(value) { 
     setisLoadind(true)
     let {data} = await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signin` ,value)
     .catch((err)=>{ 

@@ -1,21 +1,18 @@
-import React, {  useEffect, useState } from 'react'
-// import "./Home.module.css"
+import React from 'react'
 
 import FeaturedProducts from '../FeaturedProduct/FeaturedProducts';
-import CategorySlider from '../CategorySlider/CategorySlider';
 import MainSlider from '../MainSlider/MainSlider';
-import { Helmet } from 'react-helmet';
+import { Provider } from 'react-redux';
+import  store  from '../../store';
 
 
 export default function Home() {
   return <>
-  {/* <Helmet>
-                
-                <title>Fresh Cart Home</title>
-                
-            </Helmet> */}
+  
+  <Provider store={store}>
 <MainSlider/>
-  {/* <CategorySlider /> */}
     <FeaturedProducts/>
+    </Provider>
   </>
 }
+  

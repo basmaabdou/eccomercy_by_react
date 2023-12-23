@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import axios from 'axios'
-import {Helmet} from "react-helmet";
 
 export default function ProductDetails() {
 
@@ -11,10 +10,9 @@ function getAllDetails(){
   return axios.get(`https://ecommerce.routemisr.com/api/v1/products/${params.id}`)
 }
 
-let {data , isError , isLoading , isFetching } = useQuery(`productDetails` , getAllDetails )
+let {data } = useQuery(`productDetails` , getAllDetails )
 
 let Data = data?.data.data
-console.log(Data);
   return <>
 
 {Data?
@@ -40,7 +38,6 @@ console.log(Data);
     )}</span>
   </p>
 </div>
-    {/* <button className='btn bg-main text-white w-100 btn-sm '>+ Add To Cart</button> */}
   </div>
 </div>:""}
 

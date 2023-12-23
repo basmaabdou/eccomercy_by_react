@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import "./NavBar.module.css"
 import {Link, useNavigate} from "react-router-dom"
-import logo from "../../Assets/images/freshcart-logo.svg"
 import { userContext } from '../../Context/UserContext'
 
 import { useTranslation  } from 'react-i18next';
 import i18n from '../../il8n';
+// import { useDispatch, useSelector } from 'react-redux';
+import { actions } from '../../store';
 
 
 export default function NavBar() {
@@ -44,6 +45,9 @@ const changeLanguage = (lng) => {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/cart">{t("cart")}</Link>
+        </li>
+        <li className="nav-item">
+        <Link className="nav-link" to="/Add-product">Add Product</Link>
         </li>
         
         </>: ""}

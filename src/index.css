@@ -101,3 +101,13 @@ a , a:hover{
     text-align: center;
   }
 
+/* Add product form */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
